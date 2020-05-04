@@ -1,39 +1,47 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Modal , Button} from 'react-native';
+import React, {Component} from 'react';
+import { Text, View, StyleSheet,Button} from 'react-native';
+import * as Animatable from 'react-native-animatable';
+import Modal from 'react-native-modal';
 
-export default class  App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      show:false
-    }
-  }
+
+export default class ModalTester extends Component {
   render() {
-  return (
-    <View style={{flex: 1, marginTop: 100}}>
-      <Text style={{fontSize: 50}}>Screen Text</Text>
-    <Button title="Show Modal" onPress={()=> this.setState({show:true})}></Button>
-      <Modal
-      transparent={true}
-      visible={this.state.show}>
-      <View style={{backgroundColor: "#000000aa", flex:1}}>
-        <View  style={{backgroundColor: "#ffffff", margin:50,padding:20, borderRadius: 10, flex: 1}}>
-          <Text style={{fontSize: 30}}>Modal Text</Text>
-          <Button title=" Close Modal" onPress={()=> this.setState({show:false})}></Button>
+    return (
+     <View style={styles.content}> 
+<Modal isVisible={true}>
+        <Animatable.View animation="fadeIn" style={styles.messageBox}>
+           <Text>Hello Thoa Nguyen</Text>
+           <Animatable.View style={{ flexDirection:"row" }}>
+           <Button title="Learn More" style={styles.btn} color="#841584"/>
+           <Button title="Press me" style={styles.btn}  color="blue" />
+           </Animatable.View>
+        </Animatable.View>
+
+ </Modal>
         </View>
-      </View>
-
-    </Modal>
-    </View>
-  );
+ 
+     
+    );
+  }
 }
-}
+let styles = StyleSheet.create({
+  content:{
+    backgroundColor:'#ebeef0',
+    flex:1,
+    alignItems:'center',
+    flexDirection:"column",
+    justifyContent:'center'
+},
+   messageBox:{
+     backgroundColor:'orange',
+       width:350,
+       paddingTop:20,
+       paddingBottom:30,
+       paddingLeft:10,
+       paddingRight:10, 
+       borderRadius:10,
+       alignItems:'center',
+       justifyContent:'center'
+   },
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+});
