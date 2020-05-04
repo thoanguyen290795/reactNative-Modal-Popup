@@ -10,8 +10,8 @@ export default class ModalTester extends Component {
      <View style={styles.content}> 
 <Modal isVisible={true}>
         <Animatable.View animation="fadeIn" style={styles.messageBox}>
-           <Text>Hello Thoa Nguyen</Text>
-           <Animatable.View style={{ flexDirection:"row" }}>
+           <Text style={styles.text}>Hello Thoa Nguyen</Text>
+           <Animatable.View style={styles.btn}>
            <Button title="Learn More" style={styles.btn} color="#841584"/>
            <Button title="Press me" style={styles.btn}  color="blue" />
            </Animatable.View>
@@ -29,19 +29,26 @@ let styles = StyleSheet.create({
     backgroundColor:'#ebeef0',
     flex:1,
     alignItems:'center',
-    flexDirection:"column",
-    justifyContent:'center'
+    flexDirection:"column"
 },
    messageBox:{
      backgroundColor:'orange',
-       width:350,
+       width:300,
        paddingTop:20,
        paddingBottom:30,
        paddingLeft:10,
        paddingRight:10, 
        borderRadius:10,
-       alignItems:'center',
        justifyContent:'center'
    },
+   text: {
+     alignItems:'center',
+     textAlign:'center',
+     marginBottom: 10
+   },
+   btn: {
+    flexDirection:"row", 
+    justifyContent:'space-between'
+   }
 
 });
